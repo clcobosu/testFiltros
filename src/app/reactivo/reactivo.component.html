@@ -1,0 +1,46 @@
+<div class="m-3">
+  <p> Formulario con busqueda reactiva </p>
+  <form>
+    <div class="form-group form-inline">
+      Buscar por Usuario:
+      <input required minlength="4" maxlength="20"
+        placeholder="Busqueda"
+        class="form-control ml-2"
+        type="text"
+        name="searchTerm" [(ngModel)]="searchTerm"
+        (input)="search($event)"/>
+    </div>
+
+  </form>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col" sortable="id">id</th>
+        <th scope="col" sortable="login">User</th>
+        <th scope="col" sortable="score">Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let Users of xUsers; index as i">
+        <tr
+          [style.display]="i / pageSize >= page || i / pageSize < page - 1 ? 'none' : null " >
+          <th scope="row">{{ (page - 1) * pageSize + i + 1 }}</th>
+          <td>{{ Users.id }}</td>
+          <td>{{ Users.login }}</td>
+          <td>{{ Users.score  }}</td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+
+  <ngb-pagination
+    [collectionSize]="collectionSize"
+    [(page)]="page"
+    [maxSize]="10"
+    [boundaryLinks]="true"
+    [pageSize]="pageSize"
+    class="d-flex justify-content-center"
+  ></ngb-pagination>
+</div>
+

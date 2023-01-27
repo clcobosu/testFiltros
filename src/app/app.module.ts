@@ -1,25 +1,31 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-import { ListUserFilterPipe } from './list-user-filter.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { CommonModule } from '@angular/common';
+import { ListFilterPipe } from './list-filter.pipe';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactivoComponent } from './reactivo/reactivo.component';
+import { BusquedasComponent } from './busquedas/busquedas.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListUserFilterPipe
+    ListFilterPipe,
+    ReactivoComponent,
+    BusquedasComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NgbModule,
     HttpClientModule,
     FormsModule,
-    NgbModule,
-    CommonModule
+    ReactiveFormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

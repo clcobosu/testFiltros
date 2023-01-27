@@ -1,42 +1,16 @@
-<div class="m-3">
-  <form>
-    <div class="form-group form-inline">
-      Search User by name:
-      <input placeholder="Search" class="form-control ml-2" type="text" name="searchTerm" [(ngModel)]="searchTerm"  (input)="search($event)"
-      />
-    </div>
-  </form>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col" sortable="login">Login</th>
-        <th scope="col" sortable="id">Id</th>
-        <th scope="col" sortable="score">score</th>
-      </tr>
-    </thead>
-    <tbody>
-      <ng-container *ngfor="let usuarios of xUser; index as i">
-        <tr
-          [style.display]="i / pagesize >= page || i / pagesize < page - 1 ? 'none' : null " >
-          <th scope="row">{{ (page - 1) * pagesize + i + 1 }}</th>
-          <td>
-            {{ usuarios.login }}
-          </td>
-          <td>{{ usuarios.id | number }}</td>
-          <td>{{ usuarios.score | number }}</td>
-        </tr>
-      </ng-container>
-    </tbody>
-  </table>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Inicio</a>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li routerLinkActive="active" class="nav-item">
+        <a class="nav-link" routerLink="/reactivo">BuscaDinamico</a>
+      </li>
+      <li routerLinkActive="active" class="nav-item">
+        <a class="nav-link" routerLink="/busquedas">Busca Validator</a>
+      </li>
 
-  <ngb-pagination
-    [collectionSize]="collectionSize"
-    [(page)]="page"
-    [maxSize]="5"
-    [boundaryLinks]="true"
-    [pageSize]="pageSize"
-    class="d-flex justify-content-center"
-  ></ngb-pagination>
-</div>
+    </ul>
+  </div>
+</nav>
+
 <router-outlet></router-outlet>
