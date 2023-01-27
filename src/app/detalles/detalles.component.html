@@ -1,0 +1,22 @@
+<p>detalles works!</p>
+
+<div class="m-3">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col" sortable="id">id</th>
+        <th scope="col" sortable="login">User</th>
+        <th scope="col" sortable="followers_url">followers</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let Users of xUsers; index as i" >
+        <tr>
+          <td>{{ Users.id }}</td>
+          <td>{{ Users.login }}</td>
+          <td>{{ Users.followers_url  }}</td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>

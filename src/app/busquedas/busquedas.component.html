@@ -24,18 +24,25 @@
           <th scope="col">#</th>
           <th scope="col" sortable="id">id</th>
           <th scope="col" sortable="login">User</th>
-          <th scope="col" sortable="score">Score</th>
+          <th scope="col" sortable="followers_url">followers</th>
+          <th scope="col" >Accion</th>
         </tr>
       </thead>
       <tbody>
-        <ng-container *ngFor="let Users of xUsers; index as i">
+        <ng-container *ngFor="let Users of xUsers; index as i" >
           <tr
             [style.display]="i / pageSize >= page || i / pageSize < page - 1 ? 'none' : null " >
             <th scope="row">{{ (page - 1) * pageSize + i + 1 }}</th>
             <td>{{ Users.id }}</td>
             <td>{{ Users.login }}</td>
-            <td>{{ Users.score  }}</td>
+            <td>{{ Users.followers_url  }}</td>
+            <td>
+              <a class="btn" [routerLink]="['/detalles/', Users.login]" >
+                <i class="bi bi-pencil text-primary">{{ Users.login }}</i>
+              </a>
+            </td>
           </tr>
+
         </ng-container>
       </tbody>
     </table>

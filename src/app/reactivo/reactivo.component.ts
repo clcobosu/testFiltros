@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Users } from '../users';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-reactivo',
@@ -18,6 +19,8 @@ export class ReactivoComponent implements OnInit {
   allxUsers: Users[] = [];
   userName: string ='';
 
+  urlApi = environment.url;
+// './assets/data/Users.json'
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
@@ -28,6 +31,11 @@ export class ReactivoComponent implements OnInit {
       this.xUsers = data;
       this.allxUsers = this.xUsers;
     });
+
+    this.http.get('urlApi').subscribe(data => {
+      console.log(data);
+    });
+
   }
 
   search(event: any): void {

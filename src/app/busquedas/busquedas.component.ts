@@ -54,13 +54,21 @@ export class BusquedasComponent {
     this.submitted = true;
 
     if (this.form.invalid) {
+      this.http
+    .get<Users[]>('./assets/data/Users.json')
+    .subscribe((data: Users[]) => {
+      this.collectionSize = data.length;
+      this.xUsers = data;
+      this.allxUsers = this.xUsers;
+    });
       return;
     }
 
     const searchFilter = this.form.controls['fullname'].value;
-    console.log(this.allxUsers);
+    //console.log(this.allxUsers);
     this.xUsers = this.allxUsers.filter((val) => val.login.toLowerCase().includes(searchFilter));
     this.collectionSize = this.xUsers.length;
+
   }
 }
 

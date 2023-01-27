@@ -9,14 +9,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReactivoComponent } from './reactivo/reactivo.component';
 import { BusquedasComponent } from './busquedas/busquedas.component';
-
+import { NgxBootstrapIconsModule, allIcons } from 'ngx-bootstrap-icons';
+import { DetallesComponent } from './detalles/detalles.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListFilterPipe,
     ReactivoComponent,
-    BusquedasComponent
+    BusquedasComponent,
+    DetallesComponent
   ],
   imports: [
     BrowserModule,
@@ -24,8 +26,8 @@ import { BusquedasComponent } from './busquedas/busquedas.component';
     NgbModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
-
+    ReactiveFormsModule,
+    NgxBootstrapIconsModule.pick(allIcons)
   ],
   providers: [],
   bootstrap: [AppComponent]
