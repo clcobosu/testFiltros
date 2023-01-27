@@ -24,7 +24,7 @@ export class DetallesComponent implements OnInit {
   constructor(private actRoute: ActivatedRoute, private http: HttpClient) {}
 
   ngOnInit() {
-    this.cargar();
+
 
     this.actRoute.paramMap.subscribe((params) => {
       this.xUsuario = params.get('login')!;
